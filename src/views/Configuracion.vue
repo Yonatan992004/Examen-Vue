@@ -1,12 +1,16 @@
 <template>
   <div class="informe">
     <h1>Configuracion de Usuario</h1>
+    <!-- Muestra la imagen de perfil si hay una URL válida -->
     <img v-if="urlPerfil" :src="urlPerfil" alt="Imagen de perfil" class="perfil-imagen" >
     <form @submit.prevent="guardarDatosUsuario">
+      <!-- Campo para ingresar la URL de la imagen de perfil -->
       <label for="perfil">Imagen del perfil:</label><br>
       <input class="cajas-datos" type="text" id="perfil" v-model="urlPerfil" placeholder="Ingrese la URL de su foto de perfil."><br>
+      <!-- Campo para ingresar el nombre de usuario -->
       <label for="nombre">Nombre de Usuario:</label><br>
       <input class="cajas-datos" type="text" id="nombre" v-model='nombreUsuario' placeholder="Ingrese su Nombre de Usuario."><br>
+      <!-- Botón para guardar los datos -->
       <button class="btn-perfil" type="submit">Guardar</button>
     </form>
 
@@ -17,8 +21,8 @@
     export default{
       data(){ 
         return {
-          nombreUsuario: '',
-          urlPerfil: ''
+          nombreUsuario: '', // Almacena el nombre de usuario
+          urlPerfil: '' // Almacena la URL de la imagen de perfil
         };
       },
       created(){
@@ -37,6 +41,7 @@
             nombreUsuario: this.nombreUsuario,
             urlPerfil: this.urlPerfil 
           });
+           // Muestra un mensaje de alerta para indicar que es necesario actualizar la página
           alert(`Se ha actualizado su informacion \nEs necesario actualizar la pagina.`);
         }
       }

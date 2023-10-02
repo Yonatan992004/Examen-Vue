@@ -1,35 +1,19 @@
 <script setup>
+// Importa los componentes y funciones necesarios de vue-router
 import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <!-- <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header> -->
+  <!-- El contenedor principal de la aplicación -->
   <div id="app">
-    <Header />
-    <router-view />
-    <menu-sidebar :show="showSidebar" @toggle="toggleSidebar"/>
+    <Header /> <!-- Componente Header que muestra el encabezado de la página -->
+    <router-view /><!-- RouterView para mostrar el contenido de las rutas definidas en vue-router -->
+    <menu-sidebar :show="showSidebar" @toggle="toggleSidebar"/><!-- Componente MenuSidebar para mostrar la barra lateral del menú -->
   </div>
-  <Footer />
-
-  
-
+  <Footer /><!-- Componente Footer para mostrar el pie de página de la aplicación -->
 </template>
-
-
-
 <style>
-  #app{
+  #app{/* Estilos para el contenedor principal de la aplicación */
     display:block;
     width: 100%;
     height: 700px;
@@ -38,6 +22,7 @@ import { RouterLink, RouterView } from 'vue-router'
 </style>
 
 <script>
+// Importa los componentes necesarios
   import Header from './components/Header.vue';
   import MenuSidebar from './components/Sidebar.vue'
   import Footer from './components/footer.vue'
@@ -45,19 +30,18 @@ import { RouterLink, RouterView } from 'vue-router'
   export default {
     data() {
       return{
-        showSidebar :false
+        showSidebar :false // Variable para controlar la visibilidad de la barra lateral del menú
       }
     },
     methods:{
+      // Método para alternar la visibilidad de la barra lateral del menú
       toggleSidebar(){
         this.showSidebar = !this.showSidebar
     }
   },
   components: {
-    MenuSidebar , Header, Footer
+    MenuSidebar , Header, Footer // Registra los componentes para su uso en la plantilla
   }
-
-
 }
 </script>
 
